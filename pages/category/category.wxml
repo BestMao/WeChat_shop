@@ -1,0 +1,27 @@
+<view class="pyg_cate">
+  <searchInput></searchInput>
+  <view class="cate_container">
+    <!-- 左侧菜单 -->
+    <scroll-view class="left_menu" scroll-y>
+      <view class="cate_title {{index===tapIndex ? 'active' : ''}}" wx:for="{{leftList}}" wx:key="index" data-index="{{index}}" bindtap="handelTap">
+        {{item}}
+      </view>
+    </scroll-view>
+    <!-- 右侧菜单 -->
+    <scroll-view class="right_menu" scroll-y scroll-top="{{scrollTop}}">
+      <view class="cate_goods" wx:for="{{rightList}}" wx:for-index="index1" wx:for-item="item1" wx:key="cat_id">
+        <view class="goods_title">
+          <view class="title_delimiter">/</view>
+          <view class="title_name">{{item1.cat_name}}</view>
+          <view class="title_delimiter">/</view>
+        </view>
+        <view class="goods_container">
+          <navigator wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id">
+            <image src="{{item2.cat_icon}}" mode="widthFix" />
+            <view>{{item2.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
