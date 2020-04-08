@@ -1,0 +1,13 @@
+.title {
+  display: flex;
+}
+.title view {
+  flex: 1;
+  text-align: center;
+  line-height: 80rpx;
+  color: #666;
+}
+.title .active {
+  color: var(--themeColor);
+  border-bottom: 5rpx solid currentColor;
+}
