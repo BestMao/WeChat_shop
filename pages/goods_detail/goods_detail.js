@@ -36,6 +36,7 @@ Page({
         let index = cart.findIndex(v => v.goods_id === this.GoodInfo.goods_id)
         if (index === -1) {
             this.GoodInfo.num = 1
+            this.GoodInfo.checked = true
             cart.push(this.GoodInfo)
         } else {
             cart[index].num++
