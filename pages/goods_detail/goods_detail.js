@@ -16,13 +16,17 @@ Page({
     async getGoodInfo(goods_id) {
         const goodInfo = await request("/goods/detail", { goods_id })
         this.GoodInfo = goodInfo
+            //获取收藏信息
+        let collect = wx.getStorageSync("collect") || [];
+        let index = collect.findIndex(v => v.goods_id === this.GoodInfo.goods_id)
         this.setData({
             goodInfo: {
                 goods_name: goodInfo.goods_name,
                 goods_price: goodInfo.goods_price,
                 goods_introduce: goodInfo.goods_introduce,
                 pics: goodInfo.pics
-            }
+            },
+            isCollect: index !== -1 ? collect[index].isCollect : false
         })
 
     },
@@ -48,10 +52,12 @@ Page({
     collectHandle() {
         let collect = wx.getStorageSync("collect") || [];
         let index = collect.findIndex(v => v.goods_id === this.GoodInfo.goods_id)
-        console.log(index);
         if (index === -1) {
             collect.push({
                 goods_id: this.GoodInfo.goods_id,
+                isCollect: true
+            })
+            this.setData({
                 isCollect: true
             })
         } else {
@@ -61,7 +67,6 @@ Page({
             })
         }
         wx.setStorageSync("collect", collect)
-
     },
     /**
      * 生命周期函数--监听页面加载
