@@ -63,3 +63,30 @@ export const showToast = (title) => {
         })
     })
 };
+//获取code
+export const login = () => {
+    return new Promise((reslove, reject) => {
+        wx.login({
+            success: (res) => {
+                reslove(res.code)
+            },
+            fail: (err) => {
+                reject(err)
+            }
+        })
+    })
+};
+//微信请求
+export const requestPayment = (pay) => {
+    return new Promise((reslove, reject) => {
+        wx.requestPayment({
+            ...pay,
+            success(res) {
+                reslove(res)
+            },
+            fail(err) {
+                reject(err)
+            }
+        })
+    })
+};

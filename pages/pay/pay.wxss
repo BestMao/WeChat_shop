@@ -1,1 +1,106 @@
-/* pages/pay/pay.wxss */
+.review_address_row {
+  padding: 30rpx;
+}
+.user_info {
+  display: flex;
+  padding: 20rp;
+}
+.user_info .info {
+  flex: 6;
+}
+.user_info .info .info_address {
+  font-size: 30rpx;
+  color: #888;
+}
+.user_info .info .phone {
+  flex: 3;
+  text-align: right;
+}
+.cart .cart_title {
+  padding: 20rpx;
+  font-size: 36rpx;
+  color: var(--themeColor);
+  border-top: 1rpx solid currentColor;
+  border-bottom: 1rpx solid currentColor;
+}
+.cart .cart_main {
+  padding-bottom: 90rpx;
+}
+.cart .cart_main .cart_item {
+  display: flex;
+  padding: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.cart .cart_main .cart_item .cart_img_wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart .cart_main .cart_item .cart_img_wrap image {
+  width: 80%;
+}
+.cart .cart_main .cart_item .cart_info_wrap {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cart .cart_main .cart_item .cart_info_wrap .info_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #666;
+}
+.cart .cart_main .cart_item .cart_info_wrap .info_price_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.cart .cart_main .cart_item .cart_info_wrap .info_price_wrap .price {
+  color: var(--themeColor);
+  font-size: 34rpx;
+}
+.cart .cart_main .cart_item .cart_info_wrap .info_price_wrap .num_tool {
+  display: flex;
+}
+.cart .cart_main .cart_item .cart_info_wrap .info_price_wrap .num_tool .num {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_tool {
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  border-top: 2rpx solid #ccc;
+}
+.footer_tool .total_price_warp {
+  padding: 0 20rpx;
+  flex: 5;
+  text-align: right;
+}
+.footer_tool .total_price_warp .total_price text.total_price_text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.footer_tool .total_price_warp view {
+  font-size: 26rpx;
+}
+.footer_tool .all_sum_warp {
+  flex: 3;
+  background-color: var(--themeColor);
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

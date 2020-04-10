@@ -1,0 +1,119 @@
+.review_address_row {
+  padding: 30rpx;
+}
+.user_info{
+    display: flex;
+    padding: 20rp;
+    .info{
+      flex: 6;.info_address {
+        font-size: 30rpx;
+        color: #888;
+      }
+    .phone{
+      flex: 3;
+      text-align: right;
+    }
+  }
+}
+
+// 购物车内容
+.cart {
+.cart_title {
+  padding: 20rpx;
+  font-size: 36rpx;
+  color: var(--themeColor);
+  border-top: 1rpx solid currentColor;
+  border-bottom: 1rpx solid currentColor;
+  
+}
+
+.cart_main {
+  padding-bottom: 90rpx;
+  .cart_item {
+    display: flex;
+    padding: 10rpx;
+    border-bottom: 1rpx solid #ccc;
+    .cart_img_wrap {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      image {
+        width: 80%;
+      }
+    }
+
+    .cart_info_wrap {
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .info_name {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp:2;
+        color: #666;
+      }
+
+      .info_price_wrap {
+        display: flex;
+        justify-content: space-between;
+        .price {
+          color: var(--themeColor);
+          font-size: 34rpx;
+        }
+
+        .num_tool {
+          display: flex;
+          .num {
+            width: 55rpx;
+            height: 55rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+//结算窗口
+.footer_tool {
+display: flex;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 90rpx;
+background-color: #fff;
+border-top: 2rpx solid #ccc;
+.total_price_warp {
+  padding: 0 20rpx;
+  flex: 5;
+  text-align: right;
+  .total_price {
+    text.total_price_text {
+      font-size: 36rpx;
+      font-weight: bold;
+      color: var(--themeColor);
+    }
+  }
+  view {
+    font-size: 26rpx;
+  }
+}
+
+.all_sum_warp {
+  flex: 3;
+  background-color: var(--themeColor);
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}

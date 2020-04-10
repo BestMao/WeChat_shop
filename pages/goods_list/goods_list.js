@@ -43,7 +43,8 @@ Page({
     },
     //获取商品列表数据
     async getGoodsList() {
-        const goodList = await request('/goods/search', this.goodParams)
+        await request({ url: "/goods/search", data: this.goodParams });
+        const goodList = await request({ url: "/goods/search", data: this.goodParams });
         this.maxPagenum = Math.ceil(goodList.total / this.goodParams.pagesize)
         this.setData({
             goodList: [...this.data.goodList, ...goodList.goods]

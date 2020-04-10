@@ -29,9 +29,8 @@ Page({
 
     // 获取轮播图数据
     getSwiperList() {
-        request("/home/swiperdata")
+        request({ url: "/home/swiperdata" })
             .then(result => {
-
                 this.setData({
                     swiperList: result
                 })
@@ -39,7 +38,7 @@ Page({
     },
     // 获取 分类导航数据
     getCateList() {
-        request("/home/catitems")
+        request({ url: "/home/catitems" })
             .then(result => {
                 this.setData({
                     catesList: result
@@ -48,7 +47,7 @@ Page({
     },
     // 获取 楼层数据
     getFloorList() {
-        request("/home/floordata")
+        request({ url: "/home/floordata" })
             .then(result => {
                 this.setData({
                     floorList: result

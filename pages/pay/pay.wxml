@@ -1,2 +1,44 @@
-<!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<!-- 收货地址添加 -->
+<view class="review_address_row">
+  <!-- 收货地显示 -->
+  <view class="user_info">
+    <view class="info">
+      <view class="info_name">{{address.userName}}</view>
+      <view class="info_address">{{address.all}}</view>
+    </view>
+    <view class="phone">{{address.telNumber}}</view>
+  </view>
+</view>
+<!-- 购物车内容 -->
+<view class="cart">
+  <view class="cart_title">购物车</view>
+  <view class="cart_main">
+    <view class="cart_item" wx:for="{{cart}}" wx:key="goods_id">
+      <!-- 图片 -->
+      <navigator class="cart_img_wrap">
+        <image src="{{item.goods_small_logo}}" mode="widthFix" />
+      </navigator>
+      <!-- 信息 -->
+      <view class="cart_info_wrap">
+        <view class="info_name">{{item.goods_name}}</view>
+        <view class="info_price_wrap">
+          <view class="price">¥{{item.goods_price}}</view>
+          <view class="num_tool">
+            <view class="num">X {{item.num}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 结算窗口 -->
+<view class="footer_tool">
+  <view class="total_price_warp">
+    <view class="total_price">
+      合计：
+      <text class="total_price_text">¥{{totalPrice}}</text>
+    </view>
+    <view>包含运费</view>
+  </view>
+  <view class="all_sum_warp" bindtap="play">支付（{{totalNum}}）</view>
+</view>
