@@ -15,8 +15,8 @@ Page({
             const code = await login()
                 //发送获取token请求
             const params = { encryptedData, rawData, iv, signature, code }
-            const { token } = await request({ url: "/users/wxlogin", data: loginParams, method: "post" });
-            wx.setStorageSync('token', 123456)
+                //const { token } = await request({ url: "/users/wxlogin", data: params, method: "post" });
+            wx.setStorageSync('token', "021xRW7i11b5Ev0uiSC7i1SL48i1xRW7Q")
                 //wx.setStorageSync('token', token)
             wx.navigateBack({
                 delta: 1

@@ -1,4 +1,4 @@
-import { requestPayment } from "../../utils/asyncWx.js";
+import { requestPayment, showToast } from "../../utils/asyncWx.js";
 import regeneratorRuntime from '../../lib/runtime/runtime';
 const { request } = require('../../request/index.js')
 Page({
@@ -46,7 +46,7 @@ Page({
             } else {
                 //订单参数
                 const order_price = this.data.totalPrice;
-                const consignee_add = this.address.all;
+                const consignee_add = this.data.address.all;
                 const cart = this.data.cart
                 let goods = [];
                 cart.forEach(v => goods.push({
@@ -56,13 +56,13 @@ Page({
                 }))
                 const oderParams = { order_price, consignee_add, goods };
                 //发送请求获取订单号参数
-                const { order_number } = request('/my/orders/create', oderParams, 'POST', token);
+                const { order_number } = await request({ url: "/my/orders/create", method: "POST", data: oderParams });
                 //发支付接口
-                const { pay } = request('/my/orders/req_unifiedorder', order_number, 'POST', token);
+                const { pay } = await request({ url: "/my/orders/req_unifiedorder", method: "POST", data: { order_number } });
                 //发起微信支付
                 await requestPayment(pay)
                     //查看后台订单状态
-                const res = await request('/my/orders/chkOrder', order_number, 'POST', token);
+                const res = await request({ url: "/my/orders/chkOrder", method: "POST", data: { order_number } });
                 await showToast({ title: "支付成功" });
                 //删除支付后对商品
                 let newCart = wx.getStorageSync("cart");
