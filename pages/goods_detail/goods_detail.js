@@ -26,7 +26,7 @@ Page({
                 goods_introduce: goodInfo.goods_introduce,
                 pics: goodInfo.pics
             },
-            isCollect: index !== -1 ? collect[index].isCollect : false
+            isCollect: index !== -1 ? true : false
         })
 
     },
@@ -52,27 +52,26 @@ Page({
     //点击收藏
     collectHandle() {
         let collect = wx.getStorageSync("collect") || [];
+        let isCollect = false
         let index = collect.findIndex(v => v.goods_id === this.GoodInfo.goods_id)
         if (index === -1) {
-            collect.push({
-                goods_id: this.GoodInfo.goods_id,
-                isCollect: true
-            })
-            this.setData({
-                isCollect: true
-            })
+            collect.push(
+                this.GoodInfo
+            );
+            isCollect = true
         } else {
-            collect[index].isCollect = !collect[index].isCollect
-            this.setData({
-                isCollect: collect[index].isCollect
-            })
+            collect.splice(index, 1)
+            isCollect = false
         }
         wx.setStorageSync("collect", collect)
+        this.setData({ isCollect })
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
-        this.getGoodInfo(options.goods_id)
+    onShow: function(options) {
+        let pages = getCurrentPages();
+        let goods_id = pages[pages.length - 1].options.goods_id
+        this.getGoodInfo(goods_id)
     }
 })

@@ -5,13 +5,15 @@
   <view class="index_swiper">
     <swiper indicator-dots autoplay circular>
       <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-        <image src="{{item.image_src}}" mode="widthFix" />
+        <navigator url="{{item.navigator_url}}">
+          <image src="{{item.image_src}}" mode="widthFix" />
+        </navigator>
       </swiper-item>
     </swiper>
   </view>
   <!-- 分类 -->
   <view class="index_cate">
-    <navigator wx:for="{{cateList}}" wx:key="name">
+    <navigator wx:for="{{catesList}}" wx:key="name" url="/pages/category/category" open-type="switchTab">
       <image src="{{item.image_src}}" mode="widthFix" />
     </navigator>
   </view>
@@ -21,9 +23,17 @@
       <image src="{{item1.floor_title.image_src}}" mode="widthFix" />
     </view>
     <view class="floor_list">
-      <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+      <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name" url="{{util.urlFormat(item2.navigator_url)}}">
         <image src="{{item2.image_src}}" mode="{{index2===0 ? 'widthFix' : 'scaleToFill'}}" />
       </navigator>
     </view>
   </view>
 </view>
+<wxs module="util">
+  // 这里不支持一些新特性
+  module.exports = {
+    urlFormat: function (input) {
+      return input.replace('?', '/goods_list?')
+    }
+  }
+</wxs>

@@ -1,2 +1,25 @@
-<!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<Tabs Tabs="{{Tabs}}" bindtabsChange="tabsItemChange"></Tabs>
+<view class="feedback">
+  <view class="feedback_title">问题种类</view>
+  <view class="feedback_tip">
+    <text>功能意见</text>
+    <text>购买遇见问题</text>
+    <text>性能问题</text>
+    <text>其他</text>
+  </view>
+  <view class="feedback_content">
+    <textarea value="{{inputText}}" bindinput="handleInputText" placeholder="请描述您的问题"></textarea>
+    <view class="feedback_bool">
+      <view class="tool_add" bindtap="addImgs">+</view>
+      <view class="tool_item" wx:for="{{imageList}}" wx:key="index" bindtap="removeImgs" data-index="{{index}}">
+        <upLmg src="{{item}}"></upLmg>
+      </view>
+    </view>
+  </view>
+  <view class="feedback_submit">
+    <button bindtap="handleFormSubmit" size="mini">
+      <icon type="success_no_circle" size="23" color="white"></icon>
+      提交
+    </button>
+  </view>
+</view>

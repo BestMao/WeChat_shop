@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+    "usingComponents": {
+        "searchInput": "../../components/searchIput/searchIput",
+        "Tabs": "../../components/Tabs/Tabs"
+    },
+    "navigationBarTitleText": "商品收藏"
 }

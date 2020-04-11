@@ -76,7 +76,7 @@ export const login = () => {
         })
     })
 };
-//微信请求
+//微信支付请求
 export const requestPayment = (pay) => {
     return new Promise((reslove, reject) => {
         wx.requestPayment({

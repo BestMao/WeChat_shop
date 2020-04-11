@@ -1,66 +1,58 @@
-// pages/search/search.js
+import regeneratorRuntime from '../../lib/runtime/runtime';
+const { request } = require('../../request/index.js')
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        //商品列表
+        goods: [],
+        //按钮的显示
+        btnShow: false,
+        //输入值
+        inputValue: ''
+    },
+    timeId: -1,
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+    },
+    //输入框变化
+    inputChange(e) {
+        const { value } = e.detail;
+        if (!value.trim()) {
+            this.setData({
+                btnShow: false,
+                goods: [],
+                inputValue: value
+            })
+            return
+        };
+        clearInterval(this.timeId);
+        this.timeId = setTimeout(() => {
+            this.getGoods(value);
+        }, 1000);
+        this.setData({
+            btnShow: true
+        })
+    },
+    //发送查询商品请求
+    async getGoods(query) {
+        const goods = await request({ url: "/goods/qsearch", data: { query } });
+        if (this.data.btnShow === false) return
+        this.setData({
+            goods
+        })
+    },
+    //点击取消按钮
+    handleCancel() {
+        this.setData({
+            inputValue: '',
+            btnShow: false,
+            goods: []
+        })
+    }
 })

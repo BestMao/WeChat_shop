@@ -1,0 +1,4 @@
+<view class="content">
+  <image src="{{src}}" />
+  <icon type="clear" color="var(--themeColor)" size="23"></icon>
+</view>

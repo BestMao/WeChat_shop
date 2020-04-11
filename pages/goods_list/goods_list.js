@@ -55,7 +55,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.goodParams.cid = options.cid;
+        this.goodParams.cid = options.cid || '';
+        this.goodParams.query = options.query || '';
         this.getGoodsList()
     },
     /**

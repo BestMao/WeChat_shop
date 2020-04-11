@@ -119,6 +119,27 @@
 					"pathName": "pages/order/order",
 					"query": "type=1",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品收藏",
+					"pathName": "pages/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/feedback/feedback",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

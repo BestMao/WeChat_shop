@@ -1,1 +1,48 @@
-/* pages/collect/collect.wxss */
+.collect_content {
+  background-color: #ccc;
+}
+.collect_content .collect_title {
+  padding: 30rpx;
+}
+.collect_content .collect_title .titie_tip {
+  padding: 10rpx 20rpx;
+  margin-left: 10rpx;
+  border: 1rpx solid #888;
+  background-color: #fff;
+}
+.collect_content .collect_title .active {
+  color: var(--themeColor);
+  border: 1rpx solid currentColor;
+}
+.collect_content .collect_main navigator {
+  display: flex;
+  padding: 10rpx 0;
+  border-bottom: 2rpx solid #ccc;
+  background-color: #fff;
+}
+.collect_content .collect_main navigator .goods_image {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collect_content .collect_main navigator .goods_image image {
+  width: 70%;
+}
+.collect_content .collect_main navigator .goods_info {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.collect_content .collect_main navigator .goods_info .info_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 28rpx;
+}
+.collect_content .collect_main navigator .goods_info .info_price {
+  color: var(--themeColor);
+  font-size: 32rpx;
+}

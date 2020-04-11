@@ -1,0 +1,50 @@
+.collect_content {
+  background-color: #ccc;
+  .collect_title {
+    padding: 30rpx;
+    .titie_tip{
+      padding: 10rpx 20rpx;
+      margin-left: 10rpx;
+      border: 1rpx solid #888;
+      background-color: #fff;
+    }
+    .active {
+      color: var(--themeColor);
+      border: 1rpx solid currentColor;
+    }
+  }
+  .collect_main{
+    navigator {
+      display: flex;
+      padding: 10rpx 0;
+      border-bottom: 2rpx solid #ccc;
+      background-color: #fff;
+      .goods_image {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        image{
+          width: 70%;
+        }
+      }
+      .goods_info {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .info_name{
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp:2;
+          font-size: 28rpx;
+        }
+        .info_price{
+          color: var(--themeColor);
+          font-size: 32rpx;
+        }
+      }
+    }
+  }
+}
