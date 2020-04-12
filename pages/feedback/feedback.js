@@ -3,11 +3,11 @@ Page({
     data: {
         Tabs: [{
             id: 0,
-            name: '综合',
+            name: '体验问题',
             isActive: true
         }, {
             id: 1,
-            name: '销量',
+            name: '商品、商家投诉',
             isActive: false
         }],
         //图片数组
@@ -71,33 +71,38 @@ Page({
         if (imageList.length != 0) {
             //循化上次图片
             imageList.forEach((v, i) => {
-                wx.uploadFile({
-                    filePath: v,
-                    name: 'file',
-                    url: 'https://imgchr.com/i/MjaXxU',
-                    success: (res) => {
-                        console.log(res);
-                        let url = res.cookies[0];
-                        console.log(url);
-                        //将成功上传到服务器到地址返回存储
-                        this.UpLoadImgs.push(url);
-                        //判断是否为最后一张图片
-                        if (i === imageList.length - 1) {
-                            wx.hideLoading();
-                            console.log("把文本的内容和外网的图片数组 提交到后台中");
-                            this.setData({
-                                inputText: "",
-                                imageList: []
-                            });
-                            // 返回上一个页面
-                            wx.navigateBack({
-                                delta: 1
-                            });
-                        }
-                    },
-                    fail: (err) => {}
+                    wx.uploadFile({
+                        filePath: v,
+                        name: 'file',
+                        url: 'https://imgchr.com/i/MjaXxU',
+                        success: (res) => {
+                            console.log(res);
+                            let url = res.cookies[0];
+                            console.log(url);
+                            //将成功上传到服务器到地址返回存储
+                            this.UpLoadImgs.push(url);
+                            //判断是否为最后一张图片
+                            if (i === imageList.length - 1) {
+                                wx.hideLoading();
+                                console.log("把文本的内容和外网的图片数组 提交到后台中");
+                                this.setData({
+                                    inputText: "",
+                                    imageList: []
+                                });
+                                // 返回上一个页面
+                                wx.navigateBack({
+                                    delta: 1
+                                });
+                            }
+                        },
+                        fail: (err) => {}
+                    })
                 })
-            })
+                // wx.hideLoading();
+                // console.log("只是提交了文本");
+                // wx.navigateBack({
+                //     delta: 1
+                // });
         } else {
             wx.hideLoading();
             console.log("只是提交了文本");

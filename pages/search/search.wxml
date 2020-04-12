@@ -3,5 +3,5 @@
   <button size="mini" hidden="{{!btnShow}}" bindtap="handleCancel">取消</button>
 </view>
 <navigator url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="search_content" wx:for="{{goods}}" wx:key="goods_id">
-  <view class="search_item">{{item.goods_name}}</view>
+  <view>{{item.goods_name}}</view>
 </navigator>

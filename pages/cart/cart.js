@@ -85,7 +85,7 @@ Page({
         }
 
     },
-    //跟新购物车数据
+    //更新购物车数据
     setCart(cart) {
         let totalPrice = 0;
         let totalNum = 0;
